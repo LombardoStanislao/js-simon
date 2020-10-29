@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.numbers {
+    background-color: tan;
+    padding: 100px;
+    margin-top: 100px;
+}
