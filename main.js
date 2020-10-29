@@ -3,14 +3,26 @@
 // Dopo 30 secondi, vengono rimossi i numeri dalla pagina e l'utente deve inserire (tramite prompt) i numeri che ha visto precedentemente, uno alla volta.
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
+// BONUS: visualizzare in pagina anche un timer con il countdown dei 30 secondi
 
 
+var countdown = 30;
 
+var timeout = setInterval(function() {
+
+    $('#countdown-numbers').text(countdown);
+    countdown--;
+
+    if (countdown < 0) {
+        clearInterval(timeout);
+    }
+
+}, 1000);
 
 
 $(document).ready(function() {
 
-    var millisecondi = 3 * 1000;
+    var millisecondi = 30 * 1000;
 
     var arrayNumbers = [];
 
@@ -31,11 +43,12 @@ $(document).ready(function() {
         $('.numbers').append('<p>' + randomNumbers + '</p>');
     }
 
+
     setTimeout(function() {
 
         $('.numbers').hide();
 
-    }, millisecondi);
+    }, millisecondi + 1000);
 
     setTimeout(function() {
 
@@ -57,11 +70,15 @@ $(document).ready(function() {
 
         console.log(matchedNumbers);
 
+        $('#numbers-selected').text('I numeri che hai inserito sono: ' + userNumbers)
+
         $('#userpoint').text('Complimenti! Hai ricordato ' + matchedNumbers + ' numeri')
 
         $('#numbers-identified').text('I numeri che ti sei ricordato sono: ' + numbersRight)
 
-    }, millisecondi + 1000)
+
+
+    }, millisecondi + 2000)
 
     console.log(arrayNumbers);
 
