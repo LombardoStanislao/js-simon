@@ -10,7 +10,7 @@
 
 $(document).ready(function() {
 
-    var seconds = 3 * 1000;
+    var millisecondi = 3 * 1000;
 
     var arrayNumbers = [];
 
@@ -35,6 +35,10 @@ $(document).ready(function() {
 
         $('.numbers').hide();
 
+    }, millisecondi);
+
+    setTimeout(function() {
+
         for (var i = 0; i < 5; i++) {
 
             var numberChoise =  Math.floor(parseInt(prompt('Inserisci un numero da 1 a 100')));
@@ -57,9 +61,7 @@ $(document).ready(function() {
 
         $('#numbers-identified').text('I numeri che ti sei ricordato sono: ' + numbersRight)
 
-
-
-    }, seconds)
+    }, millisecondi + 1000)
 
     console.log(arrayNumbers);
 
