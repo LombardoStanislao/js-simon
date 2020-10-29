@@ -10,23 +10,63 @@
 
 $(document).ready(function() {
 
-
-
+    var seconds = 3 * 1000;
 
     var arrayNumbers = [];
 
+    var userNumbers = [];
+
+    var numbersRight = [];
+
+    var matchedNumbers = 0;
+
     for (var i = 0; i < 5; i++) {
 
-        var randomNumbers = $('.numbers').append(getRndInteger(1, 100));
+        var randomNumbers = getRndInteger(1, 100);
 
         arrayNumbers.push(randomNumbers);
 
         console.log(randomNumbers);
 
-
+        $('.numbers').append('<p>' + randomNumbers + '</p>');
     }
 
+    setTimeout(function() {
+
+        $('.numbers').hide();
+
+        for (var i = 0; i < 5; i++) {
+
+            var numberChoise =  Math.floor(parseInt(prompt('Inserisci un numero da 1 a 100')));
+            userNumbers.push(numberChoise);
+
+            if (arrayNumbers.includes(numberChoise)) {
+
+                matchedNumbers += 1;
+
+                numbersRight.push(numberChoise);
+
+
+            }
+
+        }
+
+        console.log(matchedNumbers);
+
+        $('#userpoint').text('Complimenti! Hai ricordato ' + matchedNumbers + ' numeri')
+
+        $('#numbers-identified').text('I numeri che ti sei ricordato sono: ' + numbersRight)
+
+
+
+    }, seconds)
+
     console.log(arrayNumbers);
+
+
+
+
+
 
 
 
